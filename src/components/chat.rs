@@ -140,9 +140,9 @@ impl Component for Chat {
     fn view(&self, ctx: &Context<Self>) -> Html {
         let submit = ctx.link().callback(|_| Msg::SubmitMessage);
         html! {
-            <div class="flex w-screen">
-                <div class="flex-none w-56 h-screen bg-gray-100">
-                    <div class="text-xl p-3">{"Users"}</div>
+            <div class="flex w-screen text-white bg-gray-800">
+                <div class="flex-none w-56 h-screen">
+                    <div class="text-xl p-3 font-mono">{"Users"}</div>
                     {
                         self.users.clone().iter().map(|u| {
                             html!{
@@ -151,7 +151,7 @@ impl Component for Chat {
                                         <img class="w-12 h-12 rounded-full" src={u.avatar.clone()} alt="avatar"/>
                                     </div>
                                     <div class="flex-grow p-3">
-                                        <div class="flex text-xs justify-between">
+                                        <div class="flex text-xs justify-between font-mono text-black">
                                             <div>{u.name.clone()}</div>
                                         </div>
                                         <div class="text-xs text-gray-400">
@@ -164,7 +164,7 @@ impl Component for Chat {
                     }
                 </div>
                 <div class="grow h-screen flex flex-col">
-                    <div class="w-full h-14 border-b-2 border-gray-300"><div class="text-xl p-3">{"💬 Chat!"}</div></div>
+                    <div class="w-full h-14 border-b-2 border-gray-300"><div class="text-xl p-3 font-mono">{"💬 Chat!"}</div></div>
                     <div class="w-full grow overflow-auto border-b-2 border-gray-300">
                         {
                             self.messages.iter().map(|m| {
@@ -173,7 +173,7 @@ impl Component for Chat {
                                     <div class="flex items-end w-3/6 bg-gray-100 m-8 rounded-tl-lg rounded-tr-lg rounded-br-lg ">
                                         <img class="w-8 h-8 rounded-full m-3" src={user.avatar.clone()} alt="avatar"/>
                                         <div class="p-3">
-                                            <div class="text-sm">
+                                            <div class="text-sm text-black">
                                                 {m.from.clone()}
                                             </div>
                                             <div class="text-xs text-gray-500">
